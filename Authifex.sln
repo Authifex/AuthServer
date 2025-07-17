@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authifex.Web.Server", "Authifex.Web.Server\Authifex.Web.Server.csproj", "{BD967519-6C2F-49BB-8E2D-4889DC9ED089}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authifex.Web.API", "Authifex.Web.API\Authifex.Web.API.csproj", "{BD967519-6C2F-49BB-8E2D-4889DC9ED089}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6D9E77AA-D754-DF0F-1F7B-47C6841FC916} = {6D9E77AA-D754-DF0F-1F7B-47C6841FC916}
 	EndProjectSection
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Authifex.Web", "Authifex.Web\Authifex.Web.esproj", "{6D9E77AA-D754-DF0F-1F7B-47C6841FC916}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Authifex.Web.UI", "Authifex.Web.UI\Authifex.Web.UI.esproj", "{6D9E77AA-D754-DF0F-1F7B-47C6841FC916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-namespace Authifex.Web.Server
+namespace Authifex.Web.API
 {
     public class WeatherForecast
     {

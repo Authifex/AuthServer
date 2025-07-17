@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Authifex.Web.Server.Controllers
+namespace Authifex.Web.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
