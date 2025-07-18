@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Authifex.Web.Api // 替换为你实际的命名空间
+namespace Authifex.Web.Api
 {
     public class Program
     {
@@ -20,7 +20,7 @@ namespace Authifex.Web.Api // 替换为你实际的命名空间
             var app = builder.Build();
 
             app.UseDefaultFiles();
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -35,7 +35,7 @@ namespace Authifex.Web.Api // 替换为你实际的命名空间
 
             app.MapControllers();
 
-            app.MapFallbackToFile("/index.html");
+            //app.MapFallbackToFile("/index.html");
 
             app.Run();
         }
