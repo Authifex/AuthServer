@@ -5,6 +5,7 @@ import 'element-plus/dist/index.css'
 import router from './router'  // 导入路由
 import { createPinia } from 'pinia'
 import worker from '@/mocks/browser'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 //console.log('是否是开发环境:', import.meta.env.DEV)
 
@@ -20,6 +21,7 @@ if (import.meta.env.DEV) {
 
 // 使用 Element Plus 插件
 app.use(ElementPlus)
+app.use(ElementPlus, { locale: zhCn })
 
 // 注册路由
 app.use(router)

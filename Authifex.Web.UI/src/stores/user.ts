@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 interface User {
   username: string
@@ -19,9 +19,11 @@ export const useUserStore = defineStore('user', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     })
+    // 非 2xx 统一抛错
     if (!res.ok) {
-      console.error('登录接口返回错误', res.status)
-      return
+      // 附带后端返回的错误信息
+      const { message = '登录失败' } = await res.json().catch(() => ({}))
+      throw new Error(message)
     }
     const data = await res.json()
     console.log('登录接口返回数据', data)
@@ -36,5 +38,36 @@ export const useUserStore = defineStore('user', () => {
     isLoggedIn.value = false
   }
 
-  return { isLoggedIn, username, token, login, logout }
+  async function getProfile() {
+    const res = await fetch('/api/user/profile', {
+      headers: { Authorization: `Bearer ${token.value}` },
+    })
+    if (!res.ok) throw new Error('获取用户信息失败')
+    return res.json()   // { avatar, nickname, email, ... }
+  }
+
+  async function updateProfile(payload: any) {
+    const res = await fetch('/api/user/profile', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token.value}`,
+      },
+      body: JSON.stringify(payload),
+    })
+    if (!res.ok) throw new Error('更新失败')
+    // 更新成功后把本地用户名也同步一下
+    const data = await res.json()
+    username.value = data.username ?? username.value
+  }
+
+  return {
+    isLoggedIn,
+    username,
+    token,
+    login,
+    logout,
+    getProfile,      // 导出
+    updateProfile,   // 导出
+  }
 })
