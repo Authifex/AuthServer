@@ -1,6 +1,0 @@
-@Authifex.Web.Api_HostAddress = http://localhost:5189
-
-GET {{Authifex.Web.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
